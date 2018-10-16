@@ -140,15 +140,15 @@ The go template engine is used for YAGPDB's custom commands and in various other
 * `{{$args:= (joinStr " " (slice .CmdArgs 1))}}`  Saves all the arguments except the first one to a variable `$args`. 
 
 
-# How to get ID's
+# How to get IDs
 
-**User ID's:** Can be found by mentioning the user then adding a \ such as `\@jonas747#0001`. Alternatively if you have developer mode on, you can right click and select Copy ID.
+**User IDs:** Can be found by mentioning the user then adding a \ such as `\@jonas747#0001`. Alternatively if you have developer mode on, you can right click and select Copy ID.
 
-**Channel ID's:** Can be found by mentioning the channel then adding a \ such as `\#announcements`. Alternatively if you have developer mode on, you can right click on the channel and select Copy ID.
+**Channel IDs:** Can be found by mentioning the channel then adding a \ such as `\#announcements`. Alternatively if you have developer mode on, you can right click on the channel and select Copy ID.
 
-**Role ID's:** Use the `listroles` command.
+**Role IDs:** Use the `listroles` command.
 
-**Emote ID's:**
+**Emote IDs:**
 
 If it is a **custom emote**, adding a \ in front of the emote such as `\:yagpdg:` will display the name along along with the ID such as `<:yag:277569741932068864>`.
 
