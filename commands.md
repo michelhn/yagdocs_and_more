@@ -2,7 +2,7 @@
 
 The prefix is by default `-`. The first thing you see when you open the command page is the prefix, you can replace this with your own unique prefix if you would like. Be sure to hit the save button afterward.
 
-#Command Override
+# Command Override
 
 To create a command override look for the box that says New command override.
 
@@ -16,7 +16,7 @@ To create a command override look for the box that says New command override.
 
 **Ignore users with one of these roles:** Choose to ignore someone who has a role and prevent them from using the command.
 
-#Channel Override
+# Channel Override
 
 Look to the top right on your screen for a box that says *New channel override*.
 
