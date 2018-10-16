@@ -58,7 +58,7 @@ Look to the top right on your screen for a box that says *New channel override*.
 |ping          |N/A                     |N/A                                |N/A                             |Response with pong and pingtime.|
 |currenttime   |ctime, gettime          |N/A                                |(timezone) (delta time in hours)|Shows UTC time, or the timezone you chose.  List of [timezones](https://pastebin.com/ZqSPUhc7)|
 |mentionrole   |mrole                   |rolename                           |N/A                             |Sets a role to mentionable, mentions the role, then sets it back to not mentionable after 30 seconds.|
-|listroles     |N/A                     |N/A                                |N/A                             |List roles and their ID's, and some other stuff on the server.|
+|listroles     |N/A                     |N/A                                |N/A                             |List roles and their IDs, and some other stuff on the server.|
 |poll          |N/A                     |(description) (option 1) (option 2)|(option3) etc                   |Creates a reaction poll.|
 |undelete      |ud                      |N/A                                |-a                              |Views your recent deleted messages, or all users deleted messages (with "-a" and manage messages perm) in this channel.|
 |viewperms     |N/A                     |(mention/ID)                       |N/A                             |Shows you requested user's permissions in this channel.|
