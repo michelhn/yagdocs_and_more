@@ -1,4 +1,4 @@
-#Prefix
+# Prefix
 
 The prefix is by default `-`. The first thing you see when you open the command page is the prefix, you can replace this with your own unique prefix if you would like. Be sure to hit the save button afterward.
 
@@ -34,12 +34,12 @@ Look to the top right on your screen for a box that says *New channel override*.
 
 **New command override:** Create a command override that will apply to all the channels in the channel override. For help on creating command overrides, refer to [Command override](#command-override)
 
-#Command List
+# Command List
 
 *You may get a list of every command by typing* `-help` on *your server.*
 *You may also get more specific help by typing* `-help` *(command)* 
 
-##General
+## General
 
 |Command|Aliases         |Optional Args|Description                                       |
 |-------|----------------|-------------|--------------------------------------------------|
@@ -47,7 +47,7 @@ Look to the top right on your screen for a box that says *New channel override*.
 |info   |N/A             |N/A          |Response with bot information.                    |
 |invite |inv,i           |N/A          |Response with the bot website link for invitation.|
 
-##Tools & Utilities
+## Tools & Utilities
 
 |Command       |Aliases                 |Required Args                      |Optional Args                   |Description                                       |
 |--------------|------------------------|-----------------------------------|--------------------------------|--------------------------------------------------|
@@ -72,7 +72,7 @@ Look to the top right on your screen for a box that says *New channel override*.
 |delreminders  |rmreminder              |(ID)                               |N/A                             |Deletes the reminder with the given ID.|
 |role          |N/A                     |N/A                                |(rolename)                      |Give yourself a role or list all available roles. Needs to be set up first on the control panel.|
 
-##Moderation
+## Moderation
 
 |Command       |Aliases  |Required Args          |Optional Args     |Description                               |
 |--------------|---------|-----------------------|------------------|------------------------------------------|
@@ -90,7 +90,7 @@ Look to the top right on your screen for a box that says *New channel override*.
 |clearwarnings |clw      |(username) or (userID) |N/A               |Clears all warnings from given member.    |
 |automod toggle|t        |(Ruleset)              |N/A               |Toggles a ruleset on/off.                 |
 
-##FUN
+## FUN
 
 |Command       |Aliases          |Required Args        |Optional Args                  |Description                         |
 |--------------|-----------------|---------------------|-------------------------------|------------------------------------|
@@ -116,7 +116,7 @@ Look to the top right on your screen for a box that says *New channel override*.
 |8ball         |N/A              |(question)           |N/A                            |Wisdom.|
 |soundboard    |sb               |N/A                  |(soundname)                    |Play or list soundboard sounds.|
 
-###Cards Against Humanity
+### Cards Against Humanity
 
 Everything here starts with cah such as `-cah create`
 
@@ -128,7 +128,7 @@ Everything here starts with cah such as `-cah create`
 |packs  |N/A    |N/A          |N/A          |Lists available packs.                                                      |
 
 
-##Rolemenu
+## Rolemenu
 
 Everything here starts with rolemenu such as `-rolemenu create`
 
@@ -140,7 +140,7 @@ Everything here starts with rolemenu such as `-rolemenu create`
 |resetreactions|reset  |(messageID)       |N/A                                 |Removes all reactions on this menu and re-adds them, can be used to fix the order.|
 |editoption    |edit   |(messageID)       |N/A                                 |Allows you to reassign the emoji of an option, tip: use ResetReactions afterwards.|
 
-##Debug
+## Debug
 
 |Command      |Aliases |Otional Args   |Description                                               |
 |-------------|--------|---------------|----------------------------------------------------------|
@@ -152,7 +152,7 @@ Everything here starts with rolemenu such as `-rolemenu create`
 |topcommands  |N/A     |(hours: number)|Shows command usage stats, defaults to last hour.         |
 |topevents    |N/A     |(shard: number)|Shows gateway event processing stats for all or one shard.|
 
-##Administrative (only for self-hosting)
+## Administrative (only for self-hosting)
 
 |Command     |Aliases|Required Args|Optional Args|Description                                                    |
 |------------|-------|-------------|-------------|---------------------------------------------------------------|
