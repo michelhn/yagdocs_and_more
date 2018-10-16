@@ -137,8 +137,7 @@ Everything here starts with rolemenu such as `-rolemenu create`
 |create        |c      |(rolegroup's name)|(m:messageID)(nodm)(rr)(skip:number)|Sets up a role menu, specify a message with **-m** to use an existing message instead of having the bot make one. **-nodm, -rr** are  switches - first one enables/disables DM response and second one alters reaction removed state, by default reaction removed is also role removed.**-skip** Skips certain number of roles in that rolegroup, if not needed in that rolemenu.|
 |remove        |N/A    |(messageID)       |N/A                                 |Removes the rolemenu from a message, the message wont be deleted but the bot will now not do anything with reactions on that message.|
 |update        |u      |(messageID)       |(nodm)(rr)                          |Updates a rolemenu, toggling the provided flags and adding missing options, aswell as updating the order.|
-|resetreactions|reset  |(messageID)       |N/A                                 |	
-Removes all reactions on this menu and re-adds them, can be used to fix the order.|
+|resetreactions|reset  |(messageID)       |N/A                                 |Removes all reactions on this menu and re-adds them, can be used to fix the order.|
 |editoption    |edit   |(messageID)       |N/A                                 |Allows you to reassign the emoji of an option, tip: use ResetReactions afterwards.|
 
 ##Debug
