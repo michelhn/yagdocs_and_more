@@ -36,7 +36,7 @@ Look to the top right on your screen for a box that says *New channel override*.
 
 # Command List
 
-*You may get a list of every command by typing* `-help` on *your server.*
+*You may get a list of every command by typing* `-help` on *your server.*<br/>
 *You may also get more specific help by typing* `-help` *(command)* 
 
 ## General
