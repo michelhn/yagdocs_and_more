@@ -39,7 +39,7 @@ The go template engine is used for YAGPDB's custom commands and in various other
 |Field        |Description                             |
 |-------------|----------------------------------------|
 |.Member.Nick |The nickname for this member.           |
-|.Member.Roles|A list of role ID's that the member has.|
+|.Member.Roles|A list of role IDs that the member has.|
 
 
 ## Channel
@@ -127,8 +127,8 @@ The go template engine is used for YAGPDB's custom commands and in various other
 ## Snippets
 
 * `<@{{.User.ID}}>` Outputs a mention to the user that called the command.
-* `<@###########>` Mentions the user that has the ID ###### ([See How to get ID's to get ID](#how-to-get-ids)).
-* `<#&&&&&&&&&&&>` Mentions the channel that has ID &&&&&& ([See How to get ID's to get ID](#how-to-get-ids)).
+* `<@###########>` Mentions the user that has the ID ###### ([See How to get IDs to get ID](#how-to-get-ids)).
+* `<#&&&&&&&&&&&>` Mentions the channel that has ID &&&&&& ([See How to get IDs to get ID](#how-to-get-ids)).
 * `{{if hasRoleName "funrole"}} Has role funrole {{end}}`This will only show if the member has a role with name "funrole" .
 * `{{if gt (len .Args) 0}} {{index .Args 1}} {{end}}` Assuming your trigger is a command, will display your first input if input was given.
 * `{{if eq .Channel.ID #######}}` Will only show in Channel #####.
