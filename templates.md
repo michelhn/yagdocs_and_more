@@ -6,15 +6,17 @@ The go template engine is used for YAGPDB's custom commands and in various other
 ## User
 
 |Field                |Description                                                                                                                                   |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|.User                |The user's username together with discriminator.                                                                                              |
-|.User.Username       |The user's username.                                                                                                                          |
-|.User.ID             |The user's ID.                                                                                                                                |
-|.User.Discriminator  |The users's discriminator (The four digits in a person's username).                                                                           |
-|.User.Avatar         |The user's avatar ID.                                                                                                                         |
-|.User.AvatarURL "256"|Gives the URL for user's avatar, argument "256" is the size of the picture and can increase/decrease twofold (e.g. 512, 1024 or 128, 64 etc.).|
-|.User.Bot            |Determines whether the target user is a bot - if yes, it will return True.                                                                    |
-|.User.Mention        |Mentions user.                                                                                                                                |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+|.User                |The user's username together with discriminator.                                                                                             |
+|.User.Username       |The user's username.                                                                                                                         |
+|.User.ID             |The user's ID.                                                                                                                               |
+|.User.Discriminator  |The users's discriminator (The four digits in a person's username).                                                                          |
+|.User.Avatar         |The user's avatar ID.                                                                                                                        |
+|.User.AvatarURL "256"|Gives the URL for user's avatar, argument "256" is the size of the picture and can increase/decrease twofold (e.g. 512, 1024 or 128, 64 etc.)|
+|.User.Bot            |Determines whether the target user is a bot - if yes, it will return True.                                                                   |
+|.User.Mention        |Mentions user.                                                                                                                               |
+|.RealUsername        |Only works for join and leave messages. This can be used to send the real username in a staff channel when invites are censored.             |
+|.UsernameHasInvite   |Only works for join and leave messages. It will determine if the username contains an invite link.                                           |
 
 
 ## Guild / Server
