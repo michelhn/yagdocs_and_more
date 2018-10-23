@@ -15,8 +15,8 @@ The go template engine is used for YAGPDB's custom commands and in various other
 |.User.AvatarURL "256"|Gives the URL for user's avatar, argument "256" is the size of the picture and can increase/decrease twofold (e.g. 512, 1024 or 128, 64 etc.)|
 |.User.Bot            |Determines whether the target user is a bot - if yes, it will return True.                                                                   |
 |.User.Mention        |Mentions user.                                                                                                                               |
-|.RealUsername        |Only works for join and leave messages. This can be used to send the real username in a staff channel when invites are censored.             |
-|.UsernameHasInvite   |Only works for join and leave messages. It will determine if the username contains an invite link.                                           |
+|.RealUsername        |Only works with join and leave messages. This can be used to send the real username to a staff channel when invites are censored.            |
+|.UsernameHasInvite   |Only works with join and leave messages. It will determine does the username contain an invite link.                                         |
 
 
 ## Guild / Server
@@ -101,14 +101,15 @@ The go template engine is used for YAGPDB's custom commands and in various other
 |32|`deleteResponse time`                      |Deletes the response after a certain time  (1-60 seconds).|
 |33|`deleteTrigger time`                       |Deletes the trigger after a certain time (1-60 seconds).|
 |34|`addReactions "👍" "👎"`                    |Adds each emoji as a reaction to the message that triggered the command (recognizes Unicode emojis and `emojiname:emojiID`).|
-|35|`exec "command" "args" "args" etc`         |Execute a YAGPDB's command (e.g. reverse, roll, kick etc) in a custom command. Max exec can be run 5 times per command. |
-|36|`execAdmin "command" "args" "args" etc`    |Functions the same way as exec but will override any permission requirement (such as the kick permission to use kick command etc.).|
-|37|`userArg ######`                           |Function that can be used to retrieve a user from a mention string or ID.|
-|38|`currentTime`                              |Gets the current time which can be used in an custom embed.|
-|39|`.cmdArgs`                                 |Get all the arguments passed to the command.|
-|40|`slice "string" integer`                   |Outputs the "string" after cutting/slicing off integer (numeric) value of symbols - e.g. `{{slice "Fox runs" 2}}`outputs `x runs`. For slicing whole words see example below in Snippets.|
-|41|`lower "string"`                           |Convert the string to lowercase.|
-|42|`title "string"`                           |Returns string with the first letter of each word capitalized.|
+|35|`addResponseReactions` "👍" "👎"            |Adds each emoji as a reaction to the response message (recognizes Unicode emojis and emojiname:emojiid).|
+|36|`exec "command" "args" "args" etc`         |Execute a YAGPDB's command (e.g. reverse, roll, kick etc) in a custom command. Max exec can be run 5 times per command. |
+|37|`execAdmin "command" "args" "args" etc`    |Functions the same way as exec but will override any permission requirement (such as the kick permission to use kick command etc.).|
+|38|`userArg ######`                           |Function that can be used to retrieve a user from a mention string or ID.|
+|39|`currentTime`                              |Gets the current time which can be used in an custom embed.|
+|40|`.cmdArgs`                                 |Get all the arguments passed to the command.|
+|41|`slice "string" integer`                   |Outputs the "string" after cutting/slicing off integer (numeric) value of symbols - e.g. `{{slice "Fox runs" 2}}`outputs `x runs`. For slicing whole words see example below in Snippets.|
+|42|`lower "string"`                           |Convert the string to lowercase.|
+|43|`title "string"`                           |Returns string with the first letter of each word capitalized.|
 
 
 ## Branching
