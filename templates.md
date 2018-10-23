@@ -94,10 +94,10 @@ The go template engine is used for YAGPDB's custom commands and in various other
 |25|`hasRoleId roleID`                         |Returns true if the user has the role with the specified ID (use the listroles command for a list of roles).|
 |26|`addRoleID roleID`                         |Add the role with the given ID to the user that triggered the command (use the listroles command for a list of roles).|
 |27|`removeRoleID roleID`                      |Remove the role with the given ID from the user that triggered the command (use the listroles command for a list of roles).|
-|28|`giveRoleName target rolename`             |Gives a role by name to the target.|
-|29|`giveRoleID target roleID`                 |Gives a role by ID to the target.|
-|30|`takeRoleName target rolename`             |Takes away a role by name from the target.|
-|31|`takeRoleID target roleID`                 |Takes away a role by ID from the target.
+|28|`giveRoleName usermention rolename`        |Gives a role by name to the target.|
+|29|`giveRoleID usermention roleID`            |Gives a role by ID to the target.|
+|30|`takeRoleName usermention rolename`        |Takes away a role by name from the target.|
+|31|`takeRoleID usermention roleID`            |Takes away a role by ID from the target.
 |32|`deleteResponse time`                      |Deletes the response after a certain time  (1-60 seconds).|
 |33|`deleteTrigger time`                       |Deletes the trigger after a certain time (1-60 seconds).|
 |34|`addReactions "👍" "👎"`                    |Adds each emoji as a reaction to the message that triggered the command (recognizes Unicode emojis and `emojiname:emojiID`).|
