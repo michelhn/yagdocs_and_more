@@ -77,7 +77,7 @@ The go template engine is used for YAGPDB's custom commands and in various other
 |08|`seq start stop`                           |Creates a new array of integer, starting from start and ending at stop.|
 |09|`shuffle list`                             |Returns a shuffled version of a list.|
 |10|`joinStr seperator str1 str2`              |Joins several strings into one, seperated by the first arg the separator, useful for executing commands in templates (e.g.`{{joinStr "" "1" "2" "3"}} = "123")`|
-|11|`randInt (stop, or start stop)`            |Returns a random integer between 0 and stop, or start - stop if two args a provided.|
+|11|`randInt (stop, or start stop)`            |Returns a random integer between 0 and stop, or start - stop if two args are provided.|
 |12|`toString`                                 |Converts something into a string. Usage: `(toString x)`|
 |13|`toInt`                                    |Converts something into an integer. Usage: `(toInt x)`|
 |14|`toInt64`                                  |Converts something into an int64. Usage: `(toInt64 x)`|
