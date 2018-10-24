@@ -71,45 +71,46 @@ The go template engine is used for YAGPDB's custom commands and in various other
 |02|`dict key1 value1 key2 value2 etc`         |Creates a dictionary (not many use cases yet).|
 |03|`sdict "key1" "value1" "key2" "value2" etc`|The same as `dict` but with only string keys and can be used in `cembed`.|
 |04|`cslice value1 value2 etc`                 |Creates a slice (similar to array) that can be used elsewhere (`cembed` and `sdict` for example).|
-|05|`in list value`                            |Returns true if value is in list.|
-|06|`add x y`                                  |Returns x + y.|
-|07|`seq start stop`                           |Creates a new array of integer, starting from start and ending at stop.|
-|08|`shuffle list`                             |Returns a shuffled version of a list.|
-|09|`joinStr seperator str1 str2`              |Joins several strings into one, seperated by the first arg the separator, useful for executing commands in templates (e.g.`{{joinStr "" "1" "2" "3"}} = "123")`|
-|10|`randInt (stop, or start stop)`            |Returns a random integer between 0 and stop, or start - stop if two args a provided.|
-|11|`toString`                                 |Converts something into a string. Usage: `(toString x)`|
-|12|`toInt`                                    |Converts something into an integer. Usage: `(toInt x)`|
-|13|`toInt64`                                  |Converts something into an int64. Usage: `(toInt64 x)`|
-|14|`sendDm "message"`                         |Sends the user a direct message, only one DM can be sent per template (accepts embed objects).|
-|15|`sendMessage channel_name message`         |Sends message (string or embed) in channel_name, channel can be either nil, the channel ID or the channel's name.|
-|16|`sendMessageNoEscape channel_name message` |send message (string or embed) in channel_name, channel can be either nil, the channel ID or the channel name. Doesn't escape mentions (e.g. role mentions or @here/@everyone)|
-|17|`mentionEveryone`                          |Mentions @everyone.|
-|18|`EscapeEveryone "input"`                   |Escapes everyone mentions in a string.|
-|19|`mentionHere`                              |Mentions @here|
-|20|`escapeHere "input"`                       |Escapes here mentions in a string.|
-|21|`escapeEveryoneHere`                       |Escapes everyone and here mentions in a string.|
-|22|`mentionRoleName "rolename"`               |Mentions the first role found with the provided name (case insensitive).|
-|23|`mentionRoleID roleID`                     |Mentions the role found with the provided ID.|
-|24|`hasRoleName "rolename"`                   |Returns true if the user has the role with the specified name (case insensitive).|
-|25|`hasRoleId roleID`                         |Returns true if the user has the role with the specified ID (use the listroles command for a list of roles).|
-|26|`addRoleID roleID`                         |Add the role with the given ID to the user that triggered the command (use the listroles command for a list of roles).|
-|27|`removeRoleID roleID`                      |Remove the role with the given ID from the user that triggered the command (use the listroles command for a list of roles).|
-|28|`giveRoleName usermention rolename`        |Gives a role by name to the target.|
-|29|`giveRoleID usermention roleID`            |Gives a role by ID to the target.|
-|30|`takeRoleName usermention rolename`        |Takes away a role by name from the target.|
-|31|`takeRoleID usermention roleID`            |Takes away a role by ID from the target.
-|32|`deleteResponse time`                      |Deletes the response after a certain time  (1-60 seconds).|
-|33|`deleteTrigger time`                       |Deletes the trigger after a certain time (1-60 seconds).|
-|34|`addReactions "👍" "👎"`                    |Adds each emoji as a reaction to the message that triggered the command (recognizes Unicode emojis and `emojiname:emojiID`).|
-|35|`addResponseReactions` "👍" "👎"            |Adds each emoji as a reaction to the response message (recognizes Unicode emojis and emojiname:emojiid).|
-|36|`exec "command" "args" "args" etc`         |Execute a YAGPDB's command (e.g. reverse, roll, kick etc) in a custom command. Max exec can be run 5 times per command. |
-|37|`execAdmin "command" "args" "args" etc`    |Functions the same way as exec but will override any permission requirement (such as the kick permission to use kick command etc.).|
-|38|`userArg ######`                           |Function that can be used to retrieve a user from a mention string or ID.|
-|39|`currentTime`                              |Gets the current time which can be used in an custom embed.|
-|40|`.cmdArgs`                                 |Get all the arguments passed to the command.|
-|41|`slice "string" integer`                   |Outputs the "string" after cutting/slicing off integer (numeric) value of symbols - e.g. `{{slice "Fox runs" 2}}`outputs `x runs`. For slicing whole words see example below in Snippets.|
-|42|`lower "string"`                           |Convert the string to lowercase.|
-|43|`title "string"`                           |Returns string with the first letter of each word capitalized.|
+|05|`cembed "list of embed values"`            |Function to generate embed inside custom command. [More in-depth here.](/custom-embeds#embeds-in-custom-commands)
+|06|`in list value`                            |Returns true if value is in list.|
+|07|`add x y`                                  |Returns x + y.|
+|08|`seq start stop`                           |Creates a new array of integer, starting from start and ending at stop.|
+|09|`shuffle list`                             |Returns a shuffled version of a list.|
+|10|`joinStr seperator str1 str2`              |Joins several strings into one, seperated by the first arg the separator, useful for executing commands in templates (e.g.`{{joinStr "" "1" "2" "3"}} = "123")`|
+|11|`randInt (stop, or start stop)`            |Returns a random integer between 0 and stop, or start - stop if two args a provided.|
+|12|`toString`                                 |Converts something into a string. Usage: `(toString x)`|
+|13|`toInt`                                    |Converts something into an integer. Usage: `(toInt x)`|
+|14|`toInt64`                                  |Converts something into an int64. Usage: `(toInt64 x)`|
+|15|`sendDm "message"`                         |Sends the user a direct message, only one DM can be sent per template (accepts embed objects).|
+|16|`sendMessage channel_name message`         |Sends message (string or embed) in channel_name, channel can be either nil, the channel ID or the channel's name.|
+|17|`sendMessageNoEscape channel_name message` |send message (string or embed) in channel_name, channel can be either nil, the channel ID or the channel name. Doesn't escape mentions (e.g. role mentions or @here/@everyone)|
+|18|`mentionEveryone`                          |Mentions @everyone.|
+|19|`EscapeEveryone "input"`                   |Escapes everyone mentions in a string.|
+|20|`mentionHere`                              |Mentions @here|
+|21|`escapeHere "input"`                       |Escapes here mentions in a string.|
+|22|`escapeEveryoneHere`                       |Escapes everyone and here mentions in a string.|
+|23|`mentionRoleName "rolename"`               |Mentions the first role found with the provided name (case insensitive).|
+|24|`mentionRoleID roleID`                     |Mentions the role found with the provided ID.|
+|25|`hasRoleName "rolename"`                   |Returns true if the user has the role with the specified name (case insensitive).|
+|26|`hasRoleId roleID`                         |Returns true if the user has the role with the specified ID (use the listroles command for a list of roles).|
+|27|`addRoleID roleID`                         |Add the role with the given ID to the user that triggered the command (use the listroles command for a list of roles).|
+|28|`removeRoleID roleID`                      |Remove the role with the given ID from the user that triggered the command (use the listroles command for a list of roles).|
+|29|`giveRoleName usermention rolename`        |Gives a role by name to the target.|
+|30|`giveRoleID usermention roleID`            |Gives a role by ID to the target.|
+|31|`takeRoleName usermention rolename`        |Takes away a role by name from the target.|
+|32|`takeRoleID usermention roleID`            |Takes away a role by ID from the target.
+|33|`deleteResponse time`                      |Deletes the response after a certain time  (1-60 seconds).|
+|34|`deleteTrigger time`                       |Deletes the trigger after a certain time (1-60 seconds).|
+|35|`addReactions "👍" "👎"`                    |Adds each emoji as a reaction to the message that triggered the command (recognizes Unicode emojis and `emojiname:emojiID`).|
+|36|`addResponseReactions` "👍" "👎"            |Adds each emoji as a reaction to the response message (recognizes Unicode emojis and emojiname:emojiid).|
+|37|`exec "command" "args" "args" etc`         |Execute a YAGPDB's command (e.g. reverse, roll, kick etc) in a custom command. Max exec can be run 5 times per command. |
+|38|`execAdmin "command" "args" "args" etc`    |Functions the same way as exec but will override any permission requirement (such as the kick permission to use kick command etc.).|
+|39|`userArg ######`                           |Function that can be used to retrieve a user from a mention string or ID.|
+|40|`currentTime`                              |Gets the current time which can be used in an custom embed.|
+|41|`.cmdArgs`                                 |Get all the arguments passed to the command.|
+|42|`slice "string" integer`                   |Outputs the "string" after cutting/slicing off integer (numeric) value of symbols - e.g. `{{slice "Fox runs" 2}}`outputs `x runs`. For slicing whole words see example below in Snippets.|
+|43|`lower "string"`                           |Convert the string to lowercase.|
+|44|`title "string"`                           |Returns string with the first letter of each word capitalized.|
 
 
 ## Branching
