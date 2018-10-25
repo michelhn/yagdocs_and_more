@@ -21,19 +21,19 @@ The go template engine is used for YAGPDB's custom commands and in various other
 
 ## Guild / Server
 
-|Field                   |Description                                                                         |
-|------------------------|------------------------------------------------------------------------------------|
-|.Guild.ID               |Outputs the ID of the guild.                                                        |
-|.Guild.Name             |Outputs the name of the guild.                                                      |
-|.Guild.Icon             |Outputs the ID of the guild's icon.                                                 |
-|.Guild.Region           |Outputs the region of the guild.                                                    |
-|.Guild.AfkChannelID     |Outputs the AFK channel ID.                                                         |
-|.Guild.OwnerID          |Outputs the ID of the owner.                                                        |
-|.Guild.JoinedAt         |Outputs when the first userjoined the guild.                                        |
-|.Guild.AfkTimeout       |Outputs the time when a user gets moved into the AFK channel while not being active.|
-|.Guild.MemberCount      |Outputs the number of users on a guild.                                             |
-|.Guild.VerificationLevel|Outputs the required verification level for the guild.                              |
-|.Guild.EmbedEnabled     |Outputs whether embeds are enabled or not, true / false.                            |
+|# |Field                   |Description                                                                         |
+|--|------------------------|------------------------------------------------------------------------------------|
+|01|.Guild.ID               |Outputs the ID of the guild.                                                        |
+|02|.Guild.Name             |Outputs the name of the guild.                                                      |
+|03|.Guild.Icon             |Outputs the ID of the guild's icon.                                                 |
+|04|.Guild.Region           |Outputs the region of the guild.                                                    |
+|05|.Guild.AfkChannelID     |Outputs the AFK channel ID.                                                         |
+|06|.Guild.OwnerID          |Outputs the ID of the owner.                                                        |
+|07|.Guild.JoinedAt         |Outputs when the first userjoined the guild.                                        |
+|08|.Guild.AfkTimeout       |Outputs the time when a user gets moved into the AFK channel while not being active.|
+|09|.Guild.MemberCount      |Outputs the number of users on a guild.                                             |
+|10|.Guild.VerificationLevel|Outputs the required verification level for the guild.                              |
+|11|.Guild.EmbedEnabled     |Outputs whether embeds are enabled or not, true / false.                            |
 
 
 ## Member
@@ -41,7 +41,7 @@ The go template engine is used for YAGPDB's custom commands and in various other
 |Field        |Description                             |
 |-------------|----------------------------------------|
 |.Member.Nick |The nickname for this member.           |
-|.Member.Roles|A list of role IDs that the member has.|
+|.Member.Roles|A list of role IDs that the member has. |
 
 
 ## Channel
