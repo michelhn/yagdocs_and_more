@@ -64,7 +64,7 @@ Look to the top right on your screen for a box that says *New channel override*.
 |viewperms     |N/A                     |(mention/ID)                       |N/A                             |Shows you requested user's permissions in this channel.|
 |stats         |N/A                     |N/A                                |N/A                             |Shows server stats (only if public stats are enabled).|
 |customcommands|cc                      |N/A                                |(commandID) (trigger string)    |Shows a custom command specified by id or trigger or lists them all. [More info](/commands-1/custom-commands).|
-|logs          |ps, paste, pastebin, log|N/A                                |(count)                         |Creates a log of the channels messages (max. 100).|
+|logs          |log                     |N/A                                |(count)                         |Creates a log of the channels messages (max. 100).|
 |whois         |whoami                  |N/A                                |(username)                      |Shows information about given member.|
 |nicknames     |nn                      |N/A                                |(username)                      |Shows past nicknames of given member.|
 |usernames     |unames, un              |N/A                                |(username)                      |Shows past usernames of given member.|
