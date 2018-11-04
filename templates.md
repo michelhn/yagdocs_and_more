@@ -143,8 +143,8 @@ The go template engine is used for YAGPDB's custom commands and in various other
 * `{{addReactions .CmdArgs}}` Adds the emoji following a trigger as reactions.
 * `{{$a := (exec "catfact")}}` Saves the response of the **catfact** command to variable `$a`. 
 * `{{$allArgs := (joinStr " " .CmdArgs)}}` Saves all the argument to a variable $allArgs. 
-* `{{$args:= (joinStr " " (slice .CmdArgs 1))}}`  Saves all the arguments except the first one to a variable `$args`. 
-
+* `{{$args:= (joinStr " " (slice .CmdArgs 1))}}` Saves all the arguments except the first one to a variable `$args`. 
+* `{{/* this is a comment */}}` For commenting something inside a template, use this syntax.
 
 # How to get IDs
 
