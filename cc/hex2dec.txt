@@ -10,6 +10,7 @@ This cc is informative and with comments also over 2KB. So remove comments and t
 {{ $len := add ( toInt ( joinStr "" "-" ( len $h) ) ) 1 }}
 {{ range $k, $kk := seq $len 1 }}
 
+{{/* This Branch indexes array and gives it's ASCII code proper value */}}
 {{ if not $e}}
 {{ $v := index $h $k }}
 {{ $a := "" }}
@@ -23,16 +24,18 @@ This cc is informative and with comments also over 2KB. So remove comments and t
 {{ else if eq $v 55 }} {{ $a = 7 }}
 {{ else if eq $v 56 }} {{ $a = 8 }}
 {{ else if eq $v 57 }} {{ $a = 9 }}
-{{ else if or (eq $v 65) (eq $v 97 ) }} {{ $a = "10" }}
-{{ else if or (eq $v 66) (eq $v 98 ) }} {{ $a = "11" }}
-{{ else if or (eq $v 67) (eq $v 99 ) }} {{ $a = "12" }}
-{{ else if or (eq $v 68) (eq $v 100 ) }} {{ $a = "13" }}
-{{ else if or (eq $v 69) (eq $v 101 ) }} {{ $a = "14" }}
-{{ else if or (eq $v 70) (eq $v 102 ) }} {{ $a = "15" }}
+{{ else if or (eq $v 65) (eq $v 97 ) }} {{ $a = 10 }}
+{{ else if or (eq $v 66) (eq $v 98 ) }} {{ $a = 11 }}
+{{ else if or (eq $v 67) (eq $v 99 ) }} {{ $a = 12 }}
+{{ else if or (eq $v 68) (eq $v 100 ) }} {{ $a = 13 }}
+{{ else if or (eq $v 69) (eq $v 101 ) }} {{ $a = 14 }}
+{{ else if or (eq $v 70) (eq $v 102 ) }} {{ $a = 15 }}
 {{ else }}
 {{ $e = 1 }}
 error, inproper hex
 {{ end }}
+
+{{/* The equation for calc is formed here */}}
 {{ if not ( eq $kk 0) }} {{ $kk = slice ( toString $kk ) 1 }} {{ end }}
 {{ $z = joinStr "" $z "+" $a "*16^" $kk }}
 {{ end }}
