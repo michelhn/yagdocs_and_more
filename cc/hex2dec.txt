@@ -1,3 +1,5 @@
+{{/* This is BIN algorithm > (B^I)*N > base, index, numeric value of index /*}}
+{{/* 89aa00 = 8*16^5 + 9*16^4 + 10*16^3 + 10*16^2* + 0*16^1 + 0*16^0 /*}}
 {{ if .CmdArgs }}
 {{ $h := ( index .CmdArgs 0 ) }}
 {{ if ( lt ( len $h ) 7 ) }}
