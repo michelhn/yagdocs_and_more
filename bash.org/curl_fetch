@@ -1,0 +1,2 @@
+
+curl -s http://bash.org/?287414|grep -oEz1 "<p class=\"quote\">.*</p>" | grep -oEz1 "<p class=\"qt.*?</p>" | sed -e 's/<\/p>/\n/g' -e 's/<p class=\"qt\">//g' -e 's/<p class=\"qt\">//g' | sed -e 's/<br \/>//g' | sed -e '/^[[:space:]]*$/d' | perl -ne 'use HTML::Entities;print decode_entities($_),'

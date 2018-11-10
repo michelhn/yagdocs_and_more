@@ -165,3 +165,5 @@ Everything here starts with rolemenu such as `-rolemenu create`
 |unbanserver |N/A    |(ID)         |N/A          |Makes the bot unban a server by ID.                            |
 |findserver  |N/A    |(name)(user) |N/A          |Looks for a server by server name or the servers a user was on.|
 |createinvite|N/A    |(ID)         |N/A          |Maintenance command, creates a invite for the specified server.|
+|dcallvoice  |N/A    |
+|ccreqs      |
