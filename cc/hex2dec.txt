@@ -36,6 +36,7 @@ error, inproper hex
 {{ end }}
 {{ end }}
 
+{{/* Branch for using calc and formatting it's string output to int again */}}
 {{ if not $e}}
 {{ $result := "" }}
 {{ $x := (slice ( exec "calc" $z ) 9 ) }}
