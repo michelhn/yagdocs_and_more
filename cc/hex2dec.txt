@@ -6,7 +6,7 @@ This cc is informative and with comments also over 2KB. So remove comments and t
 {{ $h := ( index .CmdArgs 0 ) }}
 {{ if ( lt ( len $h ) 7 ) }}
 {{ $z := 0 }}
-{{ $e:= 0 }}
+{{ $e := 0 }}
 {{ $len := add ( toInt ( joinStr "" "-" ( len $h) ) ) 1 }}
 {{ range $k, $kk := seq $len 1 }}
 
