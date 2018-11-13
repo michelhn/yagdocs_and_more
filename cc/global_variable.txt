@@ -1,0 +1,49 @@
+## Simple example to embed random input to warning and set it as global variable
+
+{{ $cf := joinStr "" ( exec "cf" ) "ö" }}
+{{ $cf }}
+{{ exec "editwarning" 1024235 $cf }}
+
+
+## Command accessing that global warning
+
+{{ $x := ( exec "warnings" "450338812938289162" ) }}
+{{ $x =  lower ( slice $x 75 ) }}
+{{ $result := "" }}
+{{ $e := 0 }}
+{{ range $k, $kk := seq 0 ( len $x ) }}
+{{ if not $e }}
+{{ $v := ( index $x $k )}}
+{{ $a := ""}}
+{{ if eq $v 97 }}{{ $a = "a" }}
+{{ else if eq $v 98 }}{{ $a = "b" }}
+{{ else if eq $v 99 }}{{ $a = "c" }}
+{{ else if eq $v 100 }}{{ $a = "d" }}
+{{ else if eq $v 101 }}{{ $a = "e" }}
+{{ else if eq $v 102 }}{{ $a = "f" }}
+{{ else if eq $v 103 }}{{ $a = "g" }}
+{{ else if eq $v 104 }}{{ $a = "h" }}
+{{ else if eq $v 105 }}{{ $a = "i" }}
+{{ else if eq $v 106 }}{{ $a = "j" }}
+{{ else if eq $v 107 }}{{ $a = "k" }}
+{{ else if eq $v 108 }}{{ $a = "l" }}
+{{ else if eq $v 109 }}{{ $a = "m" }}
+{{ else if eq $v 110 }}{{ $a = "n" }}
+{{ else if eq $v 111 }}{{ $a = "o" }}
+{{ else if eq $v 112 }}{{ $a = "p" }}
+{{ else if eq $v 113 }}{{ $a = "q" }}
+{{ else if eq $v 114 }}{{ $a = "r" }}
+{{ else if eq $v 115 }}{{ $a = "s" }}
+{{ else if eq $v 116 }}{{ $a = "t" }}
+{{ else if eq $v 117 }}{{ $a = "u" }}
+{{ else if eq $v 118 }}{{ $a = "v" }}
+{{ else if eq $v 119 }}{{ $a = "w" }}
+{{ else if eq $v 120 }}{{ $a = "x" }}
+{{ else if eq $v 121 }}{{ $a = "y" }}
+{{ else if eq $v 122 }}{{ $a = "z" }}
+{{ else if eq $v 195 }}{{ $e = "1" }}
+{{ end }}
+{{ $result = (joinStr "" $result $a ) }}
+{{ end }}
+{{ end }}
+{{ $result }}
