@@ -15,7 +15,8 @@
 {{ if not $e }}
 {{ $v := ( index $x $k )}}
 {{ $a := ""}}
-{{ if eq $v 97 }}{{ $a = "a" }}
+{{ if eq $v 32 }} {{ $a = " " }}
+{{ else if eq $v 97 }}{{ $a = "a" }}
 {{ else if eq $v 98 }}{{ $a = "b" }}
 {{ else if eq $v 99 }}{{ $a = "c" }}
 {{ else if eq $v 100 }}{{ $a = "d" }}
