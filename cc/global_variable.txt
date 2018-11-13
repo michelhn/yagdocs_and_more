@@ -3,10 +3,15 @@
 ## Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.
 ## Random non-standard ASCII char "ö" is used, to stop iterating over the array.
 
-{{/* $cf := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.ö" */}}
 {{ $cf := joinStr "" ( exec "cf" ) "ö" }}
+{{/* $cf := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.ö" */}}
+{{ if lt ( len $cf ) 110 }}
+{{ len $cf }} 
 {{ $cf }}
 {{ exec "editwarning" 1024235 $cf }}
+{{ else }}
+Run this again, variable too big > {{ len $cf }} for this example.
+{{ end }}
 
 
 ## Command accessing that global warning and parsing over it, notice slice and lower functions.
