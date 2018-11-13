@@ -1,11 +1,14 @@
-## Simple example to embed random input to warning and set it as global variable
+## Simple example using catfacts to embed random input to warning by editing it and seting it as global variable
+## Considering parsing section, 100KB string length should be max (catfact usually gives lengthier responses, not the point of this exercise) > 
+## Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.
 
+{{/* $cf := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.ö" */}}
 {{ $cf := joinStr "" ( exec "cf" ) "ö" }}
 {{ $cf }}
 {{ exec "editwarning" 1024235 $cf }}
 
 
-## Command accessing that global warning
+## Command accessing that global warning and parsing over it, notice slice and lower functions.
 
 {{ $x := ( exec "warnings" "450338812938289162" ) }}
 {{ $x =  lower ( slice $x 75 ) }}
