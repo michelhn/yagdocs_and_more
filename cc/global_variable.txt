@@ -1,4 +1,4 @@
-## Simple example using catfacts to embed random input to warning by editing it and seting it as global variable
+## Simple example using catfacts to embed random input to warning by editing it and setting it as global variable
 ## Considering parsing section, 100KB string length should be max (catfact usually gives lengthier responses, not the point of this exercise) > 
 ## Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.
 
