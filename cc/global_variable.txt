@@ -1,6 +1,7 @@
 ## Simple example using catfacts to embed random input to warning by editing it and setting it as global variable
 ## Considering parsing section, 100KB string length should be max (catfact usually gives lengthier responses, not the point of this exercise) > 
 ## Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.
+## Random non-standard ASCII char "ö" is used, to stop iterating over the array
 
 {{/* $cf := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.ö" */}}
 {{ $cf := joinStr "" ( exec "cf" ) "ö" }}
