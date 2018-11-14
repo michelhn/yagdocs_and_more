@@ -1,0 +1,18 @@
+## this is role present detector over preset array of roleID's that user has to have
+## currently it only detects do Memer.Roles exist in preset array $rr
+
+{{/* if or ( in  $r 427923031994662915 ) ( in  $r 447772291456303104 ) */}}
+
+{{ $r := .Member.Roles }}
+{{ $e := 0 }}
+{{ $rr := ( cslice 447772291456303104 427923031994662915 481452500583710722 ) }}
+{{ $r }} . {{ $rr }} 
+{{ range $k, $kk := $rr }}
+{{ if not $e }}
+{{ if ( in $r $kk ) }}
+ROLE PRESENT
+{{ else }}
+ROLE NOT PRESENT
+{{ end }}
+{{ end }}
+{{ end }}
