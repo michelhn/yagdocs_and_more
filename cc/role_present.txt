@@ -1,18 +1,20 @@
-## this is role present detector over preset array of roleID's that user has to have
-## currently it only detects do Memer.Roles exist in preset array $rr
+## this is role present detector example, iterates over preset array of roleIDs that user has to have
+## currently it only detects do .Memer.Roles exist in preset array $rr
 
 {{/* if or ( in  $r 427923031994662915 ) ( in  $r 447772291456303104 ) */}}
 
 {{ $r := .Member.Roles }}
-{{ $e := 0 }}
-{{ $rr := ( cslice 447772291456303104 427923031994662915 481452500583710722 ) }}
-{{ $r }} . {{ $rr }} 
-{{ range $k, $kk := $rr }}
-{{ if not $e }}
-{{ if ( in $r $kk ) }}
-ROLE PRESENT
+{{ $pr := "" }}
+{{ $npr := "" }}
+{{ $rr := ( cslice 447772291456303104 427923031994662915 481452500583710722 496583652373954560 496587409996382208 ) }}
+{{ range $v := $rr }}
+{{ if ( in $r $v ) }}
+{{ $pr = ( joinStr "" $pr " ID:" $v ) }}
 {{ else }}
-ROLE NOT PRESENT
+{{ $npr = ( joinStr "" $npr " ID:" $v ) }}
 {{ end }}
 {{ end }}
+RoleIDs present > {{ $pr }}
+{{ if $npr }}
+RoleIDs missing > {{ $npr }}
 {{ end }}
