@@ -2,7 +2,7 @@
 ## just using 'dummy' user and preset warning ID
 ## Considering parsing section, 110 bytes string length should be max (catfact usually gives lengthier responses, not the point of this exercise) >
 ## This would be shorter and easier for integer storage.
-## Random non-standard ASCII char "ö" is used, to stop iterating over the array.
+## Random ASCII char cleared not appearing in warning "!" is used, to stop iterating over the array.
 
 {{ $cf := joinStr "" ( exec "cf" ) "ö" }}
 {{/* $cf := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.ö" */}}

@@ -1,7 +1,7 @@
 ## Simple example using catfacts to embed random input to warning by editing it and setting it as global variable
 ## just using 'dummy' user and preset warning ID
-## Considering parsing section, 110 bytes string length should be max, really depends on form on range and if-s - because they create empty space inside custom command and that fills the 2K message length limit >
-## Random non-standard ASCII char "ö" is used, to stop iterating over the array.
+## Considering parsing section, it really depends on layout on range and if-s - because they create empty space white any new line inside custom command and that fills the 2K message length limit
+## ASCII char 126 cleared not appearing in warning "~" is used, to stop iterating over the array.
 
 {{ $cf := joinStr "" ( exec "cf" ) "ö" }}
 {{/* $cf := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.ö" */}}
@@ -14,22 +14,43 @@ Run this again, variable too big > {{ len $cf }} for this example.
 {{ end }}
 
 
-## Command accessing that global warning and parsing over it, notice slice and lower functions.
+## Command accessing that global warning and parsing over it alphabetically, notice slice and lower functions.
 
-{{ if gt ( len .Args) 1 }}
-{{ index .Args 1 }}
-{{ if eq ( index .Args 1) "erase" }}
-{{ $x := ( exec "editwarning" 1024235 "" ) }}
-{{ end }}
-{{ end }}
-{{ $x := ( exec "warnings" "450338812938289162" ) }}
-{{ $x =  lower ( slice $x 75 ) }}
-{{ $result := "" }}
-{{ $e := 0 }}
+{{ $result := "" }} {{ $e := 0 }}
+{{ if gt ( len .Args) 1 }} {{ if eq ( index .Args 1) "erase" }} {{ $x := ( exec "editwarning" 1024235 "ö" ) }} {{ end }} {{ end }}
+{{ $x := lower ( slice ( exec "warnings" "450338812938289162" ) 75 )  }}
 {{ range $k, $kk := seq 0 ( len $x ) }} {{ if not $e }} {{ $v := ( index $x $k )}} {{ $a := ""}} {{ if eq $v 32 }} {{ $a = " " }} {{ else if eq $v 97 }}{{ $a = "a" }} {{ else if eq $v 98 }}{{ $a = "b" }} {{ else if eq $v 99 }}{{ $a = "c" }} {{ else if eq $v 100 }}{{ $a = "d" }} {{ else if eq $v 101 }}{{ $a = "e" }} {{ else if eq $v 102 }}{{ $a = "f" }} {{ else if eq $v 103 }}{{ $a = "g" }} {{ else if eq $v 104 }}{{ $a = "h" }} {{ else if eq $v 105 }}{{ $a = "i" }} {{ else if eq $v 106 }}{{ $a = "j" }} {{ else if eq $v 107 }}{{ $a = "k" }} {{ else if eq $v 108 }}{{ $a = "l" }} {{ else if eq $v 109 }}{{ $a = "m" }} {{ else if eq $v 110 }}{{ $a = "n" }} {{ else if eq $v 111 }}{{ $a = "o" }} {{ else if eq $v 112 }}{{ $a = "p" }} {{ else if eq $v 113 }}{{ $a = "q" }} {{ else if eq $v 114 }}{{ $a = "r" }} {{ else if eq $v 115 }}{{ $a = "s" }} {{ else if eq $v 116 }}{{ $a = "t" }} {{ else if eq $v 117 }}{{ $a = "u" }} {{ else if eq $v 118 }}{{ $a = "v" }} {{ else if eq $v 119 }}{{ $a = "w" }} {{ else if eq $v 120 }}{{ $a = "x" }} {{ else if eq $v 121 }}{{ $a = "y" }} {{ else if eq $v 122 }}{{ $a = "z" }} {{ else if eq $v 195 }}{{ $e = "1" }} {{ end }}  {{ $result = ( joinStr "" $result $a ) }} {{ end }} {{ end }}
 {{ $result }}
 
 
-## Construct for integer recognition
+## Construct for integer recognition, still lower and slice
 
-{{ range $k, $kk := seq 0 ( len $x ) }} {{ if not $e }} {{ $v := ( index $x $k )}} {{ $a := ""}} {{ if eq $v 30 }} {{ $a = 0 }} {{ else if eq $v 31 }}{{ $a = 1 }} {{ else if eq $v 32 }}{{ $a = 2 }} {{ else if eq $v 33 }}{{ $a = 3 }} {{ else if eq $v 34 }}{{ $a = 4 }} {{ else if eq $v 35 }}{{ $a = 5 }} {{ else if eq $v 36 }}{{ $a = 6 }} {{ else if eq $v 37 }}{{ $a = 7 }} {{ else if eq $v 38 }}{{ $a = 8 }} {{ else if eq $v 10 }}{{ $a = 9 }} {{ else if eq $v 195 }}{{ $e = "1" }} {{ end }}  {{ $result = ( joinStr "" $result $a ) }} {{ end }} {{ end }}
+{{ range $k, $kk := seq 0 ( len $x ) }} {{ if not $e }} {{ $v := ( index $x $k )}} {{ $a := ""}} {{ if eq $v 48 }} {{ $a = "0" }} {{ else if eq $v 49 }}{{ $a = "1" }} {{ else if eq $v 50 }}{{ $a = "2" }} {{ else if eq $v 51 }}{{ $a = "3" }} {{ else if eq $v 52 }}{{ $a = "4" }} {{ else if eq $v 53 }}{{ $a = "5" }} {{ else if eq $v 54 }}{{ $a = "6" }} {{ else if eq $v 55 }}{{ $a = "7" }} {{ else if eq $v 56 }}{{ $a = "8" }} {{ else if eq $v 57 }}{{ $a = "9" }} {{ else if eq $v 195 }}{{ $e = "1" }} {{ end }}  {{ $result = ( joinStr "" $result $a ) }} {{ end }} {{ end }}
+
+## Full voting construct
+
+{{ $result := "" }} {{ $resultid := "" }} {{ $e := 0 }} {{ $eid := 0 }} {{ $y := "0" }} {{ $z := "" }} {{ $u := joinStr "" .User.ID "ö" }}
+{{ $x := lower ( slice ( execAdmin "warnings" "415256823118036993" ) 70)  }} {{ $id := lower ( slice ( execAdmin "warnings" "450338812938289162" ) 70)  }} 
+{{ range $k, $kk := seq 0 ( len $id ) }} {{ if not $eid }} {{ $v := ( index $id $k )}} {{ $a := ""}} {{ if eq $v 48 }} {{ $a = "0" }} {{ else if eq $v 49 }}{{ $a = "1" }} {{ else if eq $v 50 }}{{ $a = "2" }} {{ else if eq $v 51 }}{{ $a = "3" }} {{ else if eq $v 52 }}{{ $a = "4" }} {{ else if eq $v 53 }}{{ $a = "5" }} {{ else if eq $v 54 }}{{ $a = "6" }} {{ else if eq $v 55 }}{{ $a = "7" }} {{ else if eq $v 56 }}{{ $a = "8" }} {{ else if eq $v 57 }}{{ $a = "9" }} {{ else if eq $v 195 }}{{ $eid = "1" }} {{ end }}  {{ $resultid = ( joinStr "" $resultid $a ) }} {{ end }} {{ end }} {{ $resultid }}
+{{ if not $e }} {{ range $k, $kk := seq 0 ( len $x ) }} {{ if not $e }} {{ $v := ( index $x $k )}} {{ $a := ""}} {{ if eq $v 48 }} {{ $a = "0" }} {{ else if eq $v 49 }}{{ $a = "1" }} {{ else if eq $v 50 }}{{ $a = "2" }} {{ else if eq $v 51 }}{{ $a = "3" }} {{ else if eq $v 52 }}{{ $a = "4" }} {{ else if eq $v 53 }}{{ $a = "5" }} {{ else if eq $v 54 }}{{ $a = "6" }} {{ else if eq $v 55 }}{{ $a = "7" }} {{ else if eq $v 56 }}{{ $a = "8" }} {{ else if eq $v 57 }}{{ $a = "9" }} {{ else if eq $v 195 }}{{ $e = "1" }} {{ end }}  {{ $result = ( joinStr "" $result $a ) }} {{ $y = (add ( toInt $result) 1 ) }} {{ $z = ( joinStr "" $y "ö" ) }} {{ end }} {{ end }} {{ end }}
+{{ if $z }} {{ $s := ( execAdmin "editwarning" 1044146 $z ) }}  {{ $s := ( execAdmin "editwarning" 1044245 $u ) }}{{ end }}
+Global vote: {{ $y }}
+
+
+## Construct for erasing/resetting votes and IDs
+
+{{ $s := ( exec "editwarning" 1044146 "0ö" ) }} {{ $s := ( exec "editwarning" 1044245 "0ö" ) }} Global data erased. 
+
+## Construct for adding IDs to slice and as warn variable - totally broken and fringe programming > WIP
+
+{{ $resultid := "" }} {{ $eid := 0 }} {{ $edot := 0 }} {{ $y := "0" }} {{ $z := "" }} {{ $u := joinStr "" .User.ID "ö" }}
+{{ $id := lower ( slice ( execAdmin "warnings" "450338812938289162" ) 70)  }} 
+{{ range $k, $kk := seq 0 ( len $id ) }} {{ if not $eid }} {{ $eid }}  {{ $v := ( index $id $k )}} {{ $a := ""}} {{ if eq $v 48 }} {{ $a = "0" }} {{ else if eq $v 49 }}{{ $a = "1" }} {{ else if eq $v 50 }}{{ $a = "2" }} {{ else if eq $v 51 }}{{ $a = "3" }} {{ else if eq $v 52 }}{{ $a = "4" }} {{ else if eq $v 53 }}{{ $a = "5" }} {{ else if eq $v 54 }}{{ $a = "6" }} {{ else if eq $v 55 }}{{ $a = "7" }} {{ else if eq $v 56 }}{{ $a = "8" }} {{ else if eq $v 57 }}{{ $a = "9" }} {{ else if eq $v 195 }} {{ $edot }} RR {{ $edot = 1 }} {{ else if eq $v 195 }}{{ $eid = "1" }} SSS {{ end }} {{ $resultid = ( joinStr "" $resultid $a ) }}  {{ end }} {{ end }} {{ $resultid }}
+{{ if in $resultid ( .User.ID ) }}
+LARA CROFT!
+{{ end }}
+{{ if eq (toInt $resultid ) 0 }}
+{{/* $s := ( execAdmin "editwarning" 1044245 ( joinStr "" .User.ID "ö" ) ) */}}
+{{ else }}
+RABAN
+{{ end }}
