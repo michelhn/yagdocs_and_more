@@ -38,7 +38,7 @@ Global vote: {{ $y }}
 
 ## Construct for erasing/resetting votes and IDs
 
-{{ $s := ( exec "editwarning" 1044146 "0~" ) }} {{ $s := ( exec "editwarning" 1044245 "0~" ) }} Global data erased. 
+{{ $s := ( exec "editwarning" 1044146 "0~" ) }} {{ $s := ( exec "editwarning" 1044245 "111~" ) }} Global data erased. 
 
 
 
