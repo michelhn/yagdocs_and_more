@@ -1,8 +1,9 @@
 ## Simple example using catfacts to embed random input to warning by editing it and setting it as global variable
 ## just using 'dummy' user and preset warning ID
-## Considering parsing section, 110 bytes string length should be max (catfact usually gives lengthier responses, not the point of this exercise) >
-## This would be shorter and easier for integer storage.
-## Random ASCII char cleared not appearing in warning "~" is used, to stop iterating over the array.
+## Considering parsing section, 110 Kbytes string length should be ok. If code is not compressed, it goes easily over 2K because 
+## range and if functions produce whitespace for every newline
+## All this would be shorter and easier for integer storage.
+## Random ASCII char 126 which is cleared not appearing in warning "~" is used, to stop iterating over the array.
 
 {{ $cf := joinStr "" ( exec "cf" ) "~" }}
 {{ if lt ( len $cf ) 1111 }}
