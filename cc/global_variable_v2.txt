@@ -43,11 +43,11 @@ Global vote: {{ $y }}
 
 ## Construct for adding IDs to slice and as warn variable - totally broken and fringe programming > WIP
 
-{{ $resultid := "" }} {{ $resultbuffer := "" }}  {{ $eid := 0 }} {{ $edot := -1 }} {{ $edot2 := -1 }}{{ $y := "0" }} {{ $z := "" }} {{ $u := ( joinStr "" .User.ID "~") }} {{ $uid := .User.ID }}
+{{ $resultid := "" }} {{ $resultbuffer := "" }}  {{ $eid := 0 }} {{ $edot := 0 }} {{ $var := 0 }}{{ $y := "0" }} {{ $z := "" }} {{ $u := ( joinStr "" .User.ID "~") }} {{ $uid := .User.ID }}
 {{ $id := lower ( slice ( execAdmin "warnings" "450338812938289162" ) 70)  }} 
-{{ range $k, $kk := seq 0 ( len $id ) }} {{ if not $eid }} {{ $v := ( index $id $k )}} {{ $a := ""}}  {{ if eq $v 48 }} {{ $a = "0" }} {{ else if eq $v 49 }}{{ $a = "1" }} {{ else if eq $v 50 }}{{ $a = "2" }} {{ else if eq $v 51 }}{{ $a = "3" }} {{ else if eq $v 52 }}{{ $a = "4" }} {{ else if eq $v 53 }}{{ $a = "5" }} {{ else if eq $v 54 }}{{ $a = "6" }} {{ else if eq $v 55 }}{{ $a = "7" }} {{ else if eq $v 56 }}{{ $a = "8" }} {{ else if eq $v 57 }}{{ $a = "9" }}
+{{ range $k, $kk := seq 0 ( add ( len $id ) 1) }} {{ if not $eid }} {{ $v := ( index $id $k )}} {{ $a := ""}}  {{ if eq $v 48 }} {{ $a = "0" }} {{ else if eq $v 49 }}{{ $a = "1" }} {{ else if eq $v 50 }}{{ $a = "2" }} {{ else if eq $v 51 }}{{ $a = "3" }} {{ else if eq $v 52 }}{{ $a = "4" }} {{ else if eq $v 53 }}{{ $a = "5" }} {{ else if eq $v 54 }}{{ $a = "6" }} {{ else if eq $v 55 }}{{ $a = "7" }} {{ else if eq $v 56 }}{{ $a = "8" }} {{ else if eq $v 57 }}{{ $a = "9" }}
 
-{{ else if eq $v 46 }} {{ $a = " " }} {{ if eq ( toInt $resultid ) $uid }} KRAAKA {{ end }} {{ $resultid = "" }} {{ else if eq $v 126 }} {{ $eid = "1" }} {{ end }} {{ $resultid = ( joinStr "" $resultid $a ) }} {{ $z = joinStr "" $z $a }}{{ end }} {{ end }} LRPLA {{ $z }}
+{{ else if eq $v 46 }} {{ $a = " " }} {{ if not $edot }} {{ if eq ( toInt $resultid ) $uid }} KRAAKA  {{ end }} {{ $edot = 1 }} {{ else }}  RUUBEN {{ $resultid }} {{ if eq ( toInt ( slice $resultid 1) ) $uid }} KRAAKA  {{ end }}  {{ end }} {{ $resultid = "" }}  {{ else if eq $v 126 }} {{ $eid = "1" }} {{ end }} {{ $resultid = ( joinStr "" $resultid $a ) }} {{ $z = joinStr "" $z $a }}{{ end }} {{ end }} LRPLA {{ $z }}
 {{ if in $z ( .User.ID ) }}
 LARA CROFT!
 {{ end }}
@@ -57,3 +57,4 @@ LARA CROFT!
 RABAN
 {{ end }}
 
+-editwarning 1044245 225577030178045952.395732271447015435.476106433973190677~
