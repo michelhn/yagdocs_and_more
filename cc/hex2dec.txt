@@ -1,70 +1,68 @@
-## This cc is informative and with comment lines also over 2KB. So remove comments and this line.
+## This cc is informative and with comment lines and forrmating also over 2KB. So remove comments and this line.
+## to calculate actual hex2dec - this is built for rgb, just increase the value of first length comparsion
+## Using BIN algorithm > (B^I)*N > base, index, numeric value of index
+## 89aa00 = 8*16^5 + 9*16^4 + 10*16^3 + 10*16^2* + 0*16^1 + 0*16^0
 
-{{/* This is BIN algorithm > (B^I)*N > base, index, numeric value of index /*}}
-{{/* 89aa00 = 8*16^5 + 9*16^4 + 10*16^3 + 10*16^2* + 0*16^1 + 0*16^0 /*}}
+## Nowadays people don't think and just copy/paste so start below 
+
 {{ if .CmdArgs }}
-{{ $h := ( index .CmdArgs 0 ) }}
-{{ if ( lt ( len $h ) 7 ) }}
-{{ $z := 0 }}
-{{ $e := 0 }}
-{{ $len := add ( toInt ( joinStr "" "-" ( len $h) ) ) 1 }}
-{{ range $k, $kk := seq $len 1 }}
-
-{{/* This Branch indexes array and gives it's ASCII code proper value */}}
-{{ if not $e}}
-{{ $v := index $h $k }}
-{{ $a := "" }}
-{{ if eq $v 48 }} {{ $a = 0 }}
-{{ else if eq $v 49 }} {{ $a = 1 }}
-{{ else if eq $v 50 }} {{ $a = 2 }}
-{{ else if eq $v 51}} {{ $a = 3 }}
-{{ else if eq $v 52 }} {{ $a = 4 }}
-{{ else if eq $v 53 }} {{ $a = 5 }}
-{{ else if eq $v 54 }} {{ $a = 6 }}
-{{ else if eq $v 55 }} {{ $a = 7 }}
-{{ else if eq $v 56 }} {{ $a = 8 }}
-{{ else if eq $v 57 }} {{ $a = 9 }}
-{{ else if or (eq $v 65) (eq $v 97 ) }} {{ $a = 10 }}
-{{ else if or (eq $v 66) (eq $v 98 ) }} {{ $a = 11 }}
-{{ else if or (eq $v 67) (eq $v 99 ) }} {{ $a = 12 }}
-{{ else if or (eq $v 68) (eq $v 100 ) }} {{ $a = 13 }}
-{{ else if or (eq $v 69) (eq $v 101 ) }} {{ $a = 14 }}
-{{ else if or (eq $v 70) (eq $v 102 ) }} {{ $a = 15 }}
+	{{ $h := ( index .CmdArgs 0 ) }}
+	{{ if ( lt ( len $h ) 7 ) }}
+		{{ $z := 0 }}
+		{{ $e := 0 }}
+		{{ $len := add ( toInt ( joinStr "" "-" ( len $h) ) ) 1 }}
+		{{ range $k, $kk := seq $len 1 }}
+			{{/* This Branch indexes array and gives it's ASCII code proper value */}}
+			{{ if not $e}}
+				{{ $v := index $h $k }}
+				{{ $a := "" }}
+				{{ if eq $v 48 }} {{ $a = 0 }}
+				{{ else if eq $v 49 }} {{ $a = 1 }}
+				{{ else if eq $v 50 }} {{ $a = 2 }}
+				{{ else if eq $v 51}} {{ $a = 3 }}
+				{{ else if eq $v 52 }} {{ $a = 4 }}
+				{{ else if eq $v 53 }} {{ $a = 5 }}
+				{{ else if eq $v 54 }} {{ $a = 6 }}
+				{{ else if eq $v 55 }} {{ $a = 7 }}
+				{{ else if eq $v 56 }} {{ $a = 8 }}
+				{{ else if eq $v 57 }} {{ $a = 9 }}
+				{{ else if or (eq $v 65) (eq $v 97 ) }} {{ $a = 10 }}
+				{{ else if or (eq $v 66) (eq $v 98 ) }} {{ $a = 11 }}
+				{{ else if or (eq $v 67) (eq $v 99 ) }} {{ $a = 12 }}
+				{{ else if or (eq $v 68) (eq $v 100 ) }} {{ $a = 13 }}
+				{{ else if or (eq $v 69) (eq $v 101 ) }} {{ $a = 14 }}
+				{{ else if or (eq $v 70) (eq $v 102 ) }} {{ $a = 15 }}
+				{{ else }} {{ $e = 1 }}
+					error, inproper hex
+				{{ end }}
+				{{/* The equation for calc is formed here */}}
+				{{ if not ( eq $kk 0) }} {{ $kk = slice ( toString $kk ) 1 }} {{ end }}
+				{{ $z = joinStr "" $z "+" $a "*16^" $kk }}
+			{{ end }}
+		{{ end }}
+		{{/* Branch for using calc and formatting it's string output to int again */}}
+		{{ if not $e}}
+			{{ $result := "" }}
+			{{ $x := (slice ( exec "calc" $z ) 9 ) }}
+			{{ range $k, $kk := seq 0 ( len $x )}}
+				{{ if not $e }}
+				{{ $v := index $x $k }}
+				{{ $a := "" }}
+					{{ if eq $v 48 }} {{ $a = 0 }}{{ else if eq $v 49 }} {{ $a = 1 }}
+					{{ else if eq $v 50 }} {{ $a = 2 }} {{ else if eq $v 51}}{{ $a = 3 }}
+					{{ else if eq $v 52 }} {{ $a = 4 }} {{ else if eq $v 53 }} {{ $a = 5 }}
+					{{ else if eq $v 54 }} {{ $a = 6 }} {{ else if eq $v 55 }} {{ $a = 7 }} 
+					{{ else if eq $v 56 }} {{ $a = 8 }} {{ else if eq $v 57 }} {{ $a = 9 }}
+					{{ else }} {{ $e = 1 }}
+					{{ end }}
+				{{ $result = joinStr "" $result $a }}
+				{{ end }}
+			{{ end }}
+			{{ joinStr "" "Hex: " $h " in Decimal: " $result }}
+		{{ end }}
+	{{ else }}
+		error, argument needs to be colour in RGB hex and in length of 6 characters
+	{{ end }}
 {{ else }}
-{{ $e = 1 }}
-error, inproper hex
-{{ end }}
-
-{{/* The equation for calc is formed here */}}
-{{ if not ( eq $kk 0) }} {{ $kk = slice ( toString $kk ) 1 }} {{ end }}
-{{ $z = joinStr "" $z "+" $a "*16^" $kk }}
-{{ end }}
-{{ end }}
-
-{{/* Branch for using calc and formatting it's string output to int again */}}
-{{ if not $e}}
-{{ $result := "" }}
-{{ $x := (slice ( exec "calc" $z ) 9 ) }}
-{{ range $k, $kk := seq 0 ( len $x )}}
-{{ if not $e }}
-{{ $v := index $x $k }}
-{{ $a := "" }}
-{{ if eq $v 48 }} {{ $a = 0 }}{{ else if eq $v 49 }} {{ $a = 1 }}
-{{ else if eq $v 50 }} {{ $a = 2 }} {{ else if eq $v 51}}{{ $a = 3 }}
-{{ else if eq $v 52 }} {{ $a = 4 }} {{ else if eq $v 53 }} {{ $a = 5 }}
-{{ else if eq $v 54 }} {{ $a = 6 }} {{ else if eq $v 55 }} {{ $a = 7 }} 
-{{ else if eq $v 56 }} {{ $a = 8 }} {{ else if eq $v 57 }} {{ $a = 9 }}
-{{ else }}
-{{ $e = 1 }}
-{{ end }}
-{{ $result = joinStr "" $result $a }}
-{{ end }}
-{{ end }}
-{{ joinStr "" "Hex: " $h " in Decimal: " $result }}
-{{ end }}
-{{ else }}
-error, argument needs to be colour in RGB hex and in length of 6 characters
-{{ end }}
-{{ else }}
-needs RGB hex as argument eg 89aa00
+	needs RGB hex as argument eg 89aa00
 {{ end }}
