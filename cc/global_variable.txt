@@ -2,14 +2,13 @@
 ## just using 'dummy' user and preset warning ID
 ## Considering parsing section, 110 bytes string length should be max (catfact usually gives lengthier responses, not the point of this exercise) >
 ## This would be shorter and easier for integer storage.
-## Random ASCII char cleared not appearing in warning "!" is used, to stop iterating over the array.
+## Random ASCII char cleared not appearing in warning "~" is used, to stop iterating over the array.
 
-{{ $cf := joinStr "" ( exec "cf" ) "ö" }}
-{{/* $cf := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.ö" */}}
-{{ if lt ( len $cf ) 111 }}
+{{ $cf := joinStr "" ( exec "cf" ) "~" }}
+{{ if lt ( len $cf ) 1111 }}
 {{ len $cf }} 
 {{ $cf }}
-{{ exec "editwarning" 1024235 $cf }}
+{{ exec "editwarning" 1044245 $cf }}
 {{ else }}
 Run this again, variable too big > {{ len $cf }} for this example.
 {{ end }}
@@ -52,7 +51,7 @@ Run this again, variable too big > {{ len $cf }} for this example.
 {{ else if eq $v 120 }}{{ $a = "x" }}
 {{ else if eq $v 121 }}{{ $a = "y" }}
 {{ else if eq $v 122 }}{{ $a = "z" }}
-{{ else if eq $v 195 }}{{ $e = "1" }}
+{{ else if eq $v 126 }}{{ $e = "1" }}
 {{ end }}
 {{ $result = ( joinStr "" $result $a ) }}
 {{ end }}

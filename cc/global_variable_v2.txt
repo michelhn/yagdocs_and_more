@@ -1,18 +1,4 @@
-## Simple example using catfacts to embed random input to warning by editing it and setting it as global variable
-## just using 'dummy' users and giving them preset warnings for warningID
-## Considering parsing section, it really depends on layout on range and if-s - because they create empty whitespace for any newline inside custom command and that fills the 2K message length limit
-## ASCII char 126 cleared not appearing in warning "~" is used, to stop iterating over the array.
-
-{{ $cf := joinStr "" ( exec "cf" ) "~" }}
-{{/* $cf := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus ultrices sollicitudin nullam.~" */}}
-{{ if lt ( len $cf ) 111 }}
-{{ len $cf }} 
-{{ $cf }}
-{{ exec "editwarning" 1024235 $cf }}
-{{ else }}
-Run this again, variable too big > {{ len $cf }} for this example.
-{{ end }}
-
+## Extended version
 
 ## Command accessing that global warning and parsing over it alphabetically, notice slice and lower functions.
 
