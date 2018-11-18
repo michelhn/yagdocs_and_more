@@ -1,7 +1,7 @@
-## Simple code to teach usage of variables, if, randInt, add, slice, currentTime and calc. + Discord's formatting : )
+##Simple code to teach usage of variables, if, toString, randInt, len, add, joinStr, slice, currentTime/UserAge and calc + Discord's formatting in a fun way: )
 
 {{ $x := randInt 0  ( add ( add ( add currentUserAgeMinutes currentUserAgeMinutes ) ( add currentUserAgeMinutes currentUserAgeMinutes ) ) ( add ( add currentUserAgeMinutes currentUserAgeMinutes ) ( add currentUserAgeMinutes currentUserAgeMinutes ) ) )  }}
-{{ $y := randInt 0  ( slice ( toString currentTime.UTC.UnixNano ) 10 ) }}
+{{ $y := randInt 0  ( slice ( toString currentTime.UTC.UnixNano ) ( randInt ( len ( toString $x ) ) ( len ( toString  currentTime.UTC.UnixNano ) ) ) ) }}
 __in never-ending battle between {{ $x }} and {{ $y }}__
 Probability for {{ $x }} to win is {{ exec "calc" ( joinStr "" $x "/" $y "*100" ) }} percent.
 {{ if gt $x $y }} Winner is {{ $x }}. Well, Bravo Zulu!
