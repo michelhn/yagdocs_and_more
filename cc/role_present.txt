@@ -1,5 +1,5 @@
 ## this is role present detector example, iterates over preset array of roleIDs that user has to have
-## currently it only detects do .Memer.Roles exist in preset array $rr
+## currently it only detects do .Member.Roles exist in preset array $rr
 
 {{/* if or ( in  $r 427923031994662915 ) ( in  $r 447772291456303104 ) */}}
 
