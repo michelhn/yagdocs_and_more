@@ -11,3 +11,5 @@
 
 {{/* current time in UTC+2 and in 12H format */}}
 {{ ( joinStr " " ( ( currentTime.UTC.Add 7200000000000 ).Format "3:04"  ) $marker ) }}
+
+{{/* currentTime.UTC.UnixNano */}}
